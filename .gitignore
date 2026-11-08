@@ -1,0 +1,8 @@
+# 二进制负载（体积大，由模块自行下载或另存）
+apk/
+payload/
+*.apk
+*.zip
+
+# keybox 属于凭证类内容，不入公开仓库
+keybox/

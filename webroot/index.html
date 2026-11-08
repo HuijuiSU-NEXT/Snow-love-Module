@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>一键隐藏</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <h1>一键隐藏 <span class="ver">v2.1</span></h1>
+    <p class="sub">Zygisk Next · LSPosed · HMA-OSS · OhMyKeymint</p>
+  </header>
+
+  <section id="status" class="cards">
+    <div class="card">正在读取状态…</div>
+  </section>
+
+  <section class="actions">
+    <button data-act="oneclick">补装 / 应用设置</button>
+    <button data-act="reimport">重新导入配置</button>
+    <button data-act="applist">重扫名单 / 写 denylist</button>
+    <button data-act="status">刷新状态</button>
+    <button data-act="log">查看日志</button>
+  </section>
+
+  <pre id="out" class="console">准备就绪。</pre>
+
+  <footer>
+    <span id="hint">在 KernelSU / HuijuiSU 的模块页面里打开本 WebUI 才能执行命令</span>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
