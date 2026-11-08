@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.sh text eol=lf
+*.prop text eol=lf
+*.md text eol=lf
+*.png binary
+*.jpg binary
+*.zip binary
+*.apk binary

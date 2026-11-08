@@ -54,3 +54,31 @@
 - Issue：https://github.com/HuijuiSU-NEXT/Snow-love-Module/issues
 - Telegram：https://t.me/Huijui123
 - 频道：https://t.me/HuijuiSU
+
+## 仓库结构
+
+```
+├── module.prop          模块信息（id / 版本）
+├── customize.sh         安装入口
+├── oneclick.sh          一键流程
+├── lib.sh               公共函数
+├── config.sh            配置项
+├── applist.sh           应用列表处理
+├── service.sh           开机服务
+├── action.sh            模块动作
+├── status.sh            状态输出
+├── uninstall.sh         卸载清理
+├── webroot/             WebUI（管理器内打开的网页界面）
+├── build.sh             打包脚本 → dist/*.zip
+├── MODULE.md            模块使用说明
+└── README.*.md          六语言总览
+```
+
+## 构建
+
+```bash
+sh build.sh
+# 产物：dist/hide_bundle-<version>.zip
+```
+
+脚本会只打包刷入必需的文件，README 与构建脚本不进 zip。
