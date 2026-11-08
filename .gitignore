@@ -6,3 +6,4 @@ payload/
 
 # keybox 属于凭证类内容，不入公开仓库
 keybox/
+dist/

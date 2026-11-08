@@ -82,3 +82,17 @@ sh build.sh
 ```
 
 脚本会只打包刷入必需的文件，README 与构建脚本不进 zip。
+
+## 许可
+
+本项目采用 **GPL-3.0**，详见 [LICENSE](LICENSE)。
+
+二次分发请保留原作者署名（见 [CONTRIBUTORS.md](CONTRIBUTORS.md)）。
+
+## 贡献
+
+1. Fork 并新建分支
+2. 改完本地跑 `sh build.sh` 确认能打包
+3. 提 PR，按模板填写
+
+不要在 PR 里提交 `apk/`、`payload/`、`keybox/`。

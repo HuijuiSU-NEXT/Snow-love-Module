@@ -1,0 +1,42 @@
+name: Bug 报告
+description: 模块没生效、开机异常、检测仍然不过
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提之前先确认：用的是**最新 Release**、已重启过、已授予 root。
+  - type: input
+    id: device
+    attributes:
+      label: 机型与系统
+      placeholder: 例如 Xiaomi 14 / HyperOS 2 / Android 15
+    validations:
+      required: true
+  - type: input
+    id: kernel
+    attributes:
+      label: 内核与 Root 方案
+      placeholder: 例如 6.1.75 GKI / KernelSU v1.0.5
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 模块版本
+      placeholder: v1.3
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 现象
+      description: 具体哪里不对，最好有截图
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: 日志
+      description: 模块 status.sh 的输出，或管理器里的模块日志
+      render: shell
