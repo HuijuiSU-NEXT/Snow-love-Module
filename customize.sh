@@ -14,7 +14,7 @@ SKIPUNZIP=0
 # 兜底：有的管理器只解压 module.prop + customize.sh 就先跑我们
 if [ -n "$ZIPFILE" ] && [ -f "$ZIPFILE" ]; then
   if [ ! -f "$MODPATH/lib.sh" ] || [ ! -d "$MODPATH/payload" ]; then
-    unzip -o -q "$ZIPFILE" 'lib.sh' 'config.sh' 'payload/*' 'apk/*' 'hma/*' 'keybox/*' 'scripts/*' -d "$MODPATH" >/dev/null 2>&1
+    unzip -o -q "$ZIPFILE" 'lib.sh' 'config.sh' 'payload/*' 'apk/*' 'hma/*' 'keybox/*' -d "$MODPATH" >/dev/null 2>&1
   fi
 fi
 
@@ -57,7 +57,7 @@ ROOT="$MODPATH"
 load_config "$MODPATH/config.sh"
 
 ui_print "==================================================="
-ui_print " 一键隐藏 v1.4（78 整合 · 恋雪）"
+ui_print " 一键隐藏 v2.1"
 ui_print " ZN 1.5.2 → LSPosed → HMA-UID3.1 → OhMyKeymint → PIF-Dates"
 ui_print "==================================================="
 
@@ -70,7 +70,7 @@ if [ ! -d "$PAYLOAD_DIR" ]; then
   abort "! payload 目录不存在，包可能损坏"
 fi
 
-hlog "===== v1.4 install begin (bootmode=$BOOTMODE ksu=$KSU apatch=$APATCH) ====="
+hlog "===== v2.1 install begin (bootmode=$BOOTMODE ksu=$KSU apatch=$APATCH) ====="
 ui_print "- 运行环境：$(root_manager)"
 
 _bad=0
@@ -110,4 +110,4 @@ else
 fi
 
 ui_print "- 装完重启一次；重启后到 LSPosed 里启用 HMA-OSS"
-hlog "===== v1.4 install end fail=$_bad ====="
+hlog "===== v2.0 install end fail=$_bad ====="
