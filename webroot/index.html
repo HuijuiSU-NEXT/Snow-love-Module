@@ -2,34 +2,89 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <title>一键隐藏</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header>
-    <h1>一键隐藏 <span class="ver">v2.1</span></h1>
-    <p class="sub">Zygisk Next · LSPosed · HMA-OSS · OhMyKeymint</p>
-  </header>
+  <div class="loading-overlay" id="loading"><span class="spinner"></span><span>环境检测中…</span></div>
 
-  <section id="status" class="cards">
-    <div class="card">正在读取状态…</div>
-  </section>
+  <div class="container" id="app">
+    <header class="header">
+      <h1>一键隐藏</h1>
+      <p class="sub">Zygisk Next · LSPosed · HMA-OSS · OhMyKeymint · PIF</p>
+    </header>
 
-  <section class="actions">
-    <button data-act="oneclick">补装 / 应用设置</button>
-    <button data-act="reimport">重新导入配置</button>
-    <button data-act="applist">重扫名单 / 写 denylist</button>
-    <button data-act="status">刷新状态</button>
-    <button data-act="log">查看日志</button>
-  </section>
+    <section id="status" class="cards">
+      <div class="card"><span class="dot"></span><span class="name">读取状态…</span></div>
+    </section>
 
-  <pre id="out" class="console">准备就绪。</pre>
+    <!-- 主页面 -->
+    <div id="pageHome">
+      <div class="section-title"><span class="ico">◎</span>核心功能</div>
+      <div class="grid-2">
+        <button class="btn btn-primary" data-act="oneclick"><span class="ic">⛨</span><span>补装 / 应用设置</span></button>
+        <button class="btn" data-act="applist"><span class="ic">≡</span><span>重扫名单</span></button>
+        <button class="btn" data-act="status"><span class="ic">↻</span><span>刷新状态</span></button>
+        <button class="btn" data-act="log"><span class="ic">▤</span><span>查看日志</span></button>
+      </div>
 
-  <footer>
-    <span id="hint">在 KernelSU / HuijuiSU 的模块页面里打开本 WebUI 才能执行命令</span>
-  </footer>
+      <div class="section-title"><span class="ico purple">🔑</span>密钥与配置</div>
+      <div class="field">
+        <input id="keyboxPath" type="text" value="/sdcard/Download/keybox.xml" spellcheck="false">
+        <button class="btn btn-purple" data-act="keybox">替换 keybox</button>
+      </div>
+      <div class="field">
+        <input id="hmaPath" type="text" value="/sdcard/Download/HMA-OSS_config.json" spellcheck="false">
+        <button class="btn btn-purple" data-act="hma">导入 HMA 配置</button>
+      </div>
+      <div class="grid-2">
+        <button class="btn" data-act="hma_builtin"><span class="ic">▣</span><span>用包内自带配置</span></button>
+        <button class="btn" data-act="reimport"><span class="ic">↺</span><span>重新导入模块配置</span></button>
+      </div>
 
+      <div class="section-title"><span class="ico green">🧪</span>检测与环境</div>
+      <div class="grid-2">
+        <button class="btn" data-act="detect"><span class="ic">▦</span><span>安装检测软件（7）</span></button>
+        <button class="btn" data-act="noadb"><span class="ic">📡</span><span>关闭无线调试</span></button>
+      </div>
+
+      <div class="section-title"><span class="ico pink">🧰</span>春秋专项</div>
+      <div class="grid-2">
+        <button class="btn btn-pink" data-act="openChunqiu"><span class="ic">🛠</span><span>春秋修复工具</span></button>
+      </div>
+
+      <div class="section-title"><span class="ico">▤</span>输出</div>
+      <pre id="out" class="console">准备就绪。</pre>
+    </div>
+
+    <!-- 春秋专项页（独立功能，模板后续替换） -->
+    <div id="pageChunqiu" style="display:none">
+      <div class="section-title"><span class="ico pink">🛠</span>春秋修复工具</div>
+      <div class="cards" style="grid-template-columns:1fr">
+        <div class="card"><span class="dot on"></span><span class="name">衿蓓 JinBeiChunQiuFixToolPro2 v2.4.0</span><span class="key">已内置</span></div>
+      </div>
+      <div class="grid-2" style="margin-top:9px">
+        <button class="btn btn-pink" data-act="chunqiu"><span class="ic">⤓</span><span>部署到 /sdcard/Download</span></button>
+        <button class="btn" data-act="chunqiuHash"><span class="ic">#</span><span>校验脚本 sha256</span></button>
+      </div>
+      <div class="field" style="margin-top:9px">
+        <input id="chunqiuPath" type="text" value="/sdcard/Download/JinBeiChunQiuFixToolPro2.sh" spellcheck="false">
+        <button class="btn" data-act="chunqiuRunHint">怎么运行</button>
+      </div>
+      <pre id="out2" class="console">春秋修复是独立功能：脚本是交互式菜单，WebUI 负责部署和校验，实际修复要在 MT 管理器里以 root 运行。</pre>
+      <div class="grid-2" style="margin-top:9px">
+        <button class="btn" data-act="backHome"><span class="ic">←</span><span>返回</span></button>
+      </div>
+    </div>
+
+    <footer>
+      在 KernelSU / HuijuiSU 模块页点「打开」进入本 WebUI<br>
+      v1.4 · 恋雪
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
   <script src="./app.js"></script>
 </body>
 </html>

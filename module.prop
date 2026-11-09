@@ -1,6 +1,6 @@
 id=hide_bundle
-name=一键隐藏（91 模块整合）
-version=v1.3
-versionCode=103
+name=一键隐藏（78 整合 · 恋雪）
+version=v1.4
+versionCode=110
 author=恋雪
-description=一次装好：Zygisk Next 1.5.2 → LSPosed → HMA-OSS UID3.1 → OhMyKeymint → PlayIntegrityFix-Dates；自动装 HMA 管理端、导入 keybox，应用 ZN 设置（仅还原挂载 / 匿名内存 / ZN 链接器），自动生成黑白名单并写 denylist。
+description=Zygisk Next 1.5.2 + LSPosed + HMA-OSS UID3.1 + OhMyKeymint + PIF-Dates，内置 HMA 管理端、keybox、7 个检测软件和春秋修复脚本；WebUI 可替换 keybox、导入 HMA 配置并自动配黑白名单、关无线调试。

@@ -40,7 +40,7 @@ HMA_APK_URL=""
 # ---------------------------------------------------------------------------
 # 1 = 把 hma/config.json 导入 /data/misc/hide_my_applist_*/config.json（只导一次）
 # 这个整合包没带 json，默认 0；要用就把 config.json 放到 hma/ 再改成 1
-IMPORT_HMA_CONFIG=0
+IMPORT_HMA_CONFIG=1
 
 # 1 = 把 keybox/keybox.xml 导入 OhMyKeymint（只导一次）
 IMPORT_KEYBOX=1
